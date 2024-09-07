@@ -8,6 +8,10 @@ const serviceRoutes = require("./routes/service");
 const companyServiceUsageRoutes = require("./routes/companyServiceUsage");
 const accessLogRoutes = require("./routes/accessLog");
 
+const companyCostsRouter = require("./routes/companyCosts");
+const employeeAccessRouter = require("./routes/employeeAccess");
+const buildingStaffSalaryRouter = require("./routes/buildingStaffSalary");
+
 const app = express();
 app.use(express.json()); // Parse JSON request
 
@@ -30,6 +34,10 @@ app.use("/api/employees", employeeRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/company-services", companyServiceUsageRoutes);
 app.use("/api/access-log", accessLogRoutes);
+
+app.use("/api/company-costs", companyCostsRouter);
+app.use("/api/employee-access", employeeAccessRouter);
+app.use("/api/building-staff-salary", buildingStaffSalaryRouter);
 
 // Server
 const port = process.env.PORT || 3000;
