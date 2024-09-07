@@ -1,12 +1,11 @@
-// File: routes/buildingStaffSalary.js
 const express = require("express");
 const BuildingStaff = require("../models/buildingStaff");
 const router = express.Router();
 
-// API để lấy thông tin nhân viên toà nhà cùng lương
+// API để lấy thông tin nhân viên tòa nhà cùng lương
 router.get("/", async (req, res) => {
   try {
-    // Lấy danh sách nhân viên toà nhà từ cơ sở dữ liệu
+    // Lấy danh sách nhân viên tòa nhà từ cơ sở dữ liệu
     const buildingStaff = await BuildingStaff.find().lean();
 
     // Ràng buộc kiểm tra nếu không có nhân viên nào

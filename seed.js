@@ -4,6 +4,7 @@ const Service = require("./models/service");
 const CompanyServiceUsage = require("./models/companyServiceUsage");
 const Employee = require("./models/employee");
 const AccessLog = require("./models/accessLog");
+const BuildingStaff = require("./models/buildingStaff");
 
 const seedDatabase = async () => {
   await mongoose.connect("mongodb://localhost:27017/building", {
@@ -125,6 +126,29 @@ const seedDatabase = async () => {
 
   const insertedAccessLogs = await AccessLog.insertMany(accessLogs);
   console.log("Inserted Access Logs:", insertedAccessLogs);
+
+  // Dữ liệu cho Building Staff
+  const buildingStaff = [
+    {
+      name: "Nguyen Van A",
+      birthDate: new Date("1980-01-01"),
+      address: "123 Main St",
+      phone: "0123456789",
+      position: "Security Guard",
+      salary: 3000,
+    },
+    {
+      name: "Tran Thi B",
+      birthDate: new Date("1985-05-15"),
+      address: "456 Elm St",
+      phone: "0987654321",
+      position: "Cleaner",
+      salary: 2500,
+    },
+  ];
+
+  const insertedBuildingStaff = await BuildingStaff.insertMany(buildingStaff);
+  console.log("Inserted Building Staff:", insertedBuildingStaff);
 
   // Đóng kết nối
   await mongoose.disconnect();
