@@ -79,10 +79,8 @@ router.get("/", async (req, res) => {
       (a, b) => b.totalCost - a.totalCost
     );
 
-    // Trả kết quả cho client
     res.status(200).json(sortedCompanies);
   } catch (error) {
-    // Xử lý lỗi
     res.status(500).json({ message: error.message });
   }
 });
